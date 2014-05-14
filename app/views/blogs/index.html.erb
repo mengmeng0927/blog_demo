@@ -17,7 +17,7 @@
       <tr>
         <td><%= blog.title %></td>
         <td><%= blog.content %></td>
-        <td><%= blog.picture %></td>
+        <td><%= image_tag(blog.picture_url, :width => 600) if blog.picture.present? %></td>
         <td><%= link_to 'Show', blog %></td>
         <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
         <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
