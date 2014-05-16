@@ -1,31 +1,36 @@
-<h1>Listing blogs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Picture</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.content %></td>
-        <td><%= image_tag(blog.picture_url, :width => 600) if blog.picture.present? %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row">
+  <div class="col-sm-8 blog-main">
+    <% @blogs.reverse.each do |blog| %>
+      <div class="blog-post">
+        <h2 class="blog-post-title"><%= link_to blog.title, blog %></h2>
+        <p class="blog-post-meta">
+          <%= blog.created_at.strftime("%d %b. %Y") %>
+        </p>
+        <%= image_tag(blog.picture_url, :class => "image media-object") if blog.picture.present? %>
+        <%= simple_format(blog.content) %>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Blog', new_blog_path %>
+  </div>
+  <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+    <div class="sidebar-module">
+      <%= link_to 'New Blog', new_blog_path, class: 'btn btn-default pull-right' %>
+    </div>
+    <div class="sidebar-module sidebar-module-inset">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+              <li><a href="#">September 2013</a></li>
+              <li><a href="#">August 2013</a></li>
+              <li><a href="#">July 2013</a></li>
+              <li><a href="#">June 2013</a></li>
+              <li><a href="#">May 2013</a></li>
+              <li><a href="#">April 2013</a></li>
+              <li><a href="#">March 2013</a></li>
+              <li><a href="#">February 2013</a></li>
+            </ol>
+          </div>
+  </div>
+</div>

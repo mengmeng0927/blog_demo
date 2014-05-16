@@ -8,10 +8,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/blogs">Myblog</a></li>
+        <li><a href="#">Blogs</a></li>
+        <li><a href="#">Photos</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container page-header text-center blog-title">
+    <h1>Candy's Blog  <small>Happy everyday</small></h1>
+  </div>
+  <div class="container">
+    <%= yield %>
+  </div>
 
-<div class="container">
-  <%= yield %>
-</div>
-
+  <footer>
+    <p class="text-center">
+      Copyright © 2014 - Candy
+    </p>
+  </footer>
 </body>
 </html>

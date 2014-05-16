@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @blog %> |
-<%= link_to 'Back', blogs_path %>
+<div class ="control-group pull-right">
+  <%= link_to 'Show', @blog, :class => "btn btn-default"%>
+  <%= link_to 'Back', blogs_path, :class => "btn btn-default" %>
+</div>

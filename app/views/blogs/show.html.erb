@@ -1,19 +1,17 @@
 <p id="notice"><%= notice %></p>
+<div class="blog-main">
+  <div class="blog-post">
+    <h2 class="blog-post-title"><%= link_to @blog.title, @blog %></h2>
+    <p class="blog-post-meta">
+      <%= @blog.created_at.strftime("%d %b. %Y") %>
+    </p>
+    <%= image_tag(@blog.picture_url, :class => "image media-object") if @blog.picture.present? %>
+    <%= simple_format(@blog.content) %>
+  </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @blog.content %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(@blog.picture_url, :width => 600) if @blog.picture.present? %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<div class ="control-group pull-right">
+  <%= link_to 'Edit', edit_blog_path(@blog), :class => "btn btn-default"%>
+  <%= link_to 'Destroy', @blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"%>
+  <%= link_to 'Back', blogs_path, :class => "btn btn-default" %>
+</div>
