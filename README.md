@@ -7,6 +7,11 @@ rails new myblog
 rails s
 ```
 
+把Gemfile里的source地址改为：
+
+```
+http://ruby.taobao.org
+```
 在浏览器中打开 http://localhost:3000
 在控制台中键入CTRL-C 可以退出服务。
 解释每一步指令的含义，以及我们刚刚生成了什么（哪些文件）？ Rails服务是做什么用的？
